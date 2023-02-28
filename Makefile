@@ -22,6 +22,11 @@ CC			= gcc
 
 all : $(NAME)
 
+test : test.c
+	$(CC) $(CFLAGS) -o $@ $^ -I $(INCDIR) $(NAME)
+	./$@
+	$(RM) $@
+
 $(BINDIR)%.o : $(SRCDIR)%.c
 	$(CC) -c $(CFLAGS) -o $@ $^ -I $(INCDIR)
 

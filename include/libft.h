@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:21:59 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/27 17:06:17 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/27 20:38:23 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef enum a_bool
+{
+	false,
+	true
+}	t_bool;
+
+# define FALSE 0
+# define TRUE 1
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 20:31:55 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/23 20:40:13 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:51:58 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	c = (cur % 10) + '0';
 	if (cur >= 10)
-	{
 		ft_putnbr_fd((cur / 10), fd);
-	}
 	write(fd, &c, 1);
 }
