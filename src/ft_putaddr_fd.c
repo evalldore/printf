@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrbase_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 00:41:35 by niceguy           #+#    #+#             */
-/*   Updated: 2023/03/01 04:18:29 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/01 05:40:41 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrbase_fd(int n, char *base, int fd)
+int	ft_putaddr_fd(void *ptr, int fd)
 {
-	size_t			base_len;
-	unsigned long	cur;
-	char			c;
+	uint64_t		num;
 	int				i;
+	uint8_t			ch;
+	char			add[15];
 
-	if (!base || (!base[0] || !base[1]))
-		return (0);
-	i = 1;
-	cur = (unsigned long)n;
-	base_len = ft_strlen(base);
-	if (n < 0)
+	if (!ptr)
+		return (ft_putstr_fd("(nil)", 1));
+	num = (uint64_t)ptr;
+	i = 13;
+	(void)ft_memcpy(add, "0x000000000000", 15);
+	while (i >= 2)
 	{
-		write(fd, "-", 1);
-		cur *= -1;
-		i++;
+		ch = (num & 0x0F) + '0';
+		if (ch > '9')
+			ch += 0x27;
+		add[i] = ch;
+		num >>= 4;
+		i--;
 	}
-	c = base[cur % base_len];
-	if (cur >= base_len)
-		i += ft_putnbrbase_fd((cur / base_len), base, fd);
-	write(fd, &c, 1);
-	return (i);
+	add[15] = '\0';
+	write(fd, &add[0], 14);
+	return (14);
 }

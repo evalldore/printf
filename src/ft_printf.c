@@ -6,7 +6,7 @@
 /*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:18:29 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/28 05:48:28 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/01 05:13:16 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ You have to implement the following conversions:
 • %d Prints a decimal (base 10) number.
 * %i Prints an integer in base 10.
 • %u Prints an unsigned decimal (base 10) number.
-• %x Prints a number in hexadecimal (base 16) lowercase format.
-• %X Prints a number in hexadecimal (base 16) uppercase format.
+* %x Prints a number in hexadecimal (base 16) lowercase format.
+* %X Prints a number in hexadecimal (base 16) uppercase format.
 * %% Prints a percent sign.
 */
 
@@ -41,9 +41,11 @@ static int	ft_writearg(va_list *args, char c)
 	if (c == '%')
 		return (ft_putchar_fd('%', 1));
 	if (c == 'x')
-		return (ft_putnbrbase_fd(va_arg(*args, int), "0123456789abcdef", 1));
+		return (ft_putnbrbase_fd(va_arg(*args, int), BASE_16, 1));
 	if (c == 'X')
-		return (ft_putnbrbase_fd(va_arg(*args, int), "0123456789ABCDEF", 1));
+		return (ft_putnbrbase_fd(va_arg(*args, int), BASE_16U, 1));
+	if (c == 'p')
+		return (ft_putaddr_fd(va_arg(*args, void *), 1));
 	return (0);
 }
 

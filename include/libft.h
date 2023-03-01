@@ -6,7 +6,7 @@
 /*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:21:59 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/28 01:28:00 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/01 05:10:13 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 # include<stdio.h>
 # include<stdlib.h>
 # include<unistd.h>
-# include <stdarg.h>
+# include<stdarg.h>
 # include<fcntl.h>
+# include<stdint.h>
 
 typedef struct s_list
 {
@@ -32,6 +33,8 @@ typedef enum a_bool
 
 # define FALSE 0
 # define TRUE 1
+# define BASE_16 "0123456789abcdef"
+# define BASE_16U "0123456789ABCDEF"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -78,5 +81,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_printf(const char *f, ...);
 int		ft_putnbrbase_fd(int n, char *base, int fd);
+int		ft_putaddr_fd(void *ptr, int fd);
 
 #endif
