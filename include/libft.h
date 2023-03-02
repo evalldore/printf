@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:21:59 by evallee-          #+#    #+#             */
-/*   Updated: 2023/03/01 20:42:06 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/03/02 02:36:16 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int			ft_printf(const char *f, ...);
 int			ft_putnbrbase_fd(int n, t_bool isUpper, int fd);
 int			ft_putaddr_fd(void *ptr, int fd);
 int			ft_putuint_fd(unsigned int ui, int fd);
-u_int32_t	ft_revbits(int num);
+uint64_t	ft_revbits(int64_t num);
 int			ft_puthexa_fd(uint64_t num, t_bool isUpper, int fd);
 
 #endif

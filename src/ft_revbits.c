@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_revbits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:11:06 by evallee-          #+#    #+#             */
-/*   Updated: 2023/03/01 20:13:01 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/03/02 02:33:18 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-u_int32_t	ft_revbits(int num)
+uint64_t	ft_revbits(int64_t num)
 {
 	unsigned int	i;
 	unsigned int	nbits;
-	u_int32_t		revbits;
+	uint64_t		revbits;
 
 	nbits = sizeof(num) * 8;
 	revbits = 0;
