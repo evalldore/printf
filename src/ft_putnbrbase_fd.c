@@ -3,36 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbrbase_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 00:41:35 by niceguy           #+#    #+#             */
-/*   Updated: 2023/03/01 04:18:29 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/01 20:37:59 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrbase_fd(int n, char *base, int fd)
+int	ft_putnbrbase_fd(int n, t_bool isUpper, int fd)
 {
-	size_t			base_len;
-	unsigned long	cur;
-	char			c;
-	int				i;
+	uint64_t		cur;
 
-	if (!base || (!base[0] || !base[1]))
-		return (0);
-	i = 1;
-	cur = (unsigned long)n;
-	base_len = ft_strlen(base);
+	cur = (uint64_t)n;
 	if (n < 0)
-	{
-		write(fd, "-", 1);
-		cur *= -1;
-		i++;
-	}
-	c = base[cur % base_len];
-	if (cur >= base_len)
-		i += ft_putnbrbase_fd((cur / base_len), base, fd);
-	write(fd, &c, 1);
-	return (i);
+		cur = ft_revbits(cur);
+	return (ft_puthexa_fd(cur, isUpper, fd));
 }

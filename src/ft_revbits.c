@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_revbits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 00:41:35 by niceguy           #+#    #+#             */
-/*   Updated: 2023/03/01 20:10:51 by evallee-         ###   ########.fr       */
+/*   Created: 2023/03/01 19:11:06 by evallee-          #+#    #+#             */
+/*   Updated: 2023/03/01 20:13:01 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putaddr_fd(void *ptr, int fd)
+u_int32_t	ft_revbits(int num)
 {
-	return (write(fd, "0x", 2) + ft_puthexa_fd((uint64_t)ptr, false, fd));
+	unsigned int	i;
+	unsigned int	nbits;
+	u_int32_t		revbits;
+
+	nbits = sizeof(num) * 8;
+	revbits = 0;
+	i = 0;
+	while (i < nbits)
+	{
+		if (num & (1 << i))
+			revbits |= 1 << ((nbits - 1) - i);
+		i++;
+	}
+	return (revbits);
 }

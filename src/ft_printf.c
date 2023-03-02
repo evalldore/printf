@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:18:29 by evallee-          #+#    #+#             */
-/*   Updated: 2023/03/01 05:13:16 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/01 20:47:03 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-
 • Your function has to handle the following conversions: cspdiuxX%
 
 You have to implement the following conversions:
 * %c Prints a single character.
 * %s Prints a string (as defined by the common C convention).
-• %p The void * pointer argument has to be printed in hexadecimal format.
+* %p The void * pointer argument has to be printed in hexadecimal format.
 • %d Prints a decimal (base 10) number.
 * %i Prints an integer in base 10.
 • %u Prints an unsigned decimal (base 10) number.
@@ -36,14 +35,16 @@ static int	ft_writearg(va_list *args, char c)
 		return (ft_putchar_fd(va_arg(*args, int), 1));
 	if (c == 's')
 		return (ft_putstr_fd(va_arg(*args, char *), 1));
-	if (c == 'd')
+	if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(*args, int), 1));
+	if (c == 'u')
+		return (ft_putuint_fd(va_arg(*args, unsigned int), 1));
 	if (c == '%')
 		return (ft_putchar_fd('%', 1));
 	if (c == 'x')
-		return (ft_putnbrbase_fd(va_arg(*args, int), BASE_16, 1));
+		return (ft_putnbrbase_fd(va_arg(*args, int), false, 1));
 	if (c == 'X')
-		return (ft_putnbrbase_fd(va_arg(*args, int), BASE_16U, 1));
+		return (ft_putnbrbase_fd(va_arg(*args, int), true, 1));
 	if (c == 'p')
 		return (ft_putaddr_fd(va_arg(*args, void *), 1));
 	return (0);

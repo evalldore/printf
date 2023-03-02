@@ -10,7 +10,8 @@ SRCS	= ft_isalpha.c \
 		ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c \
 		ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_printf.c \
-		ft_putnbrbase_fd.c ft_putaddr_fd.c
+		ft_putnbrbase_fd.c ft_putaddr_fd.c ft_putuint_fd.c ft_revbits.c \
+		ft_puthexa_fd.c
 OBJS		= $(addprefix $(BINDIR), $(SRCS:.c=.o))
 NAME		= libftprintf.a
 INCDIR		= include/
