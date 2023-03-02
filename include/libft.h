@@ -6,7 +6,7 @@
 /*   By: niceguy <niceguy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:21:59 by evallee-          #+#    #+#             */
-/*   Updated: 2023/03/02 02:36:16 by niceguy          ###   ########.fr       */
+/*   Updated: 2023/03/02 03:09:13 by niceguy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,9 @@ void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int			ft_printf(const char *f, ...);
-int			ft_putnbrbase_fd(int n, t_bool isUpper, int fd);
 int			ft_putaddr_fd(void *ptr, int fd);
 int			ft_putuint_fd(unsigned int ui, int fd);
 uint64_t	ft_revbits(int64_t num);
-int			ft_puthexa_fd(uint64_t num, t_bool isUpper, int fd);
+int			ft_puthex_fd(uint64_t num, t_bool isUpper, int fd);
 
 #endif
